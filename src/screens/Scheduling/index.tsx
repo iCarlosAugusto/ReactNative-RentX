@@ -20,6 +20,7 @@ import {
   Footer,
 } from "./styles";
 import { Calendar } from "../../components/Calendar";
+import { useNavigation } from "@react-navigation/native";
 
 interface RentalPeriod {
   startFormatted: string;
@@ -27,6 +28,13 @@ interface RentalPeriod {
 }
 
 export function Scheduling() {
+
+  const navigation = useNavigation<any>();
+
+  const handleGoToSchedulingDetails = () => {
+    navigation.navigate('SchedulingDetails');
+  };
+
   return (
     <Container>
       <Header>
@@ -67,9 +75,7 @@ export function Scheduling() {
         <Footer>
           <Button
             title="Confirmar"
-            onPress={() => {
-              console.log("clicou");
-            }}
+            onPress={handleGoToSchedulingDetails}
           />
         </Footer>
      

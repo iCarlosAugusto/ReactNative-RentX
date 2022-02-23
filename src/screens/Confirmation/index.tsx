@@ -13,6 +13,7 @@ import {
   Message,
   Footer,
 } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 interface Params {
   title: string;
@@ -22,6 +23,11 @@ interface Params {
 
 export function Confirmation(){
   const { width } = useWindowDimensions();
+  const navigation = useNavigation<any>();
+
+  const handleGoToHome = () => {
+    navigation.navigate("Home");
+  }
 
   return (
     <Container>
@@ -45,7 +51,7 @@ export function Confirmation(){
       </Content>
 
       <Footer>
-        <ConfirmButton title="OK" onPress={() => {}} />
+        <ConfirmButton title="OK" onPress={handleGoToHome} />
       </Footer>
     </Container>
   );

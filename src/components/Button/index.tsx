@@ -7,9 +7,9 @@ interface Props extends RectButtonProps {
   color?: string;
 }
 
-export function Button({ title, color, ...rest }: Props) {
+export function Button({ title, color, onPress, ...rest }: Props) {
   return (
-    <Container {...rest} color={color}>
+    <Container {...rest} color={color} onPress={onPress}>
       <Title>{title}</Title>
     </Container>
   );

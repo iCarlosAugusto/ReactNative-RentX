@@ -41,9 +41,15 @@ import PeopleSvg from "../../assets/people.svg";
 import { useTheme } from 'styled-components'
 
 import { Button } from "../../components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 export function SchedulingDetails() {
   const theme = useTheme();
+  const navigation = useNavigation<any>();
+
+  const handleGoToConfirmation = () => {
+    navigation.navigate('Confirmation');
+  }
 
   return (
     <Container>
@@ -125,7 +131,7 @@ export function SchedulingDetails() {
 
 
       <Footer>
-        <Button title="Confirmar"/>
+        <Button title="Confirmar" onPress={handleGoToConfirmation}/>
       </Footer>
     </Container>
   );

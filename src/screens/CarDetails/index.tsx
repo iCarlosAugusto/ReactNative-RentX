@@ -29,8 +29,15 @@ import ExchangeSvg from "../../assets/exchange.svg";
 import PeopleSvg from "../../assets/people.svg";
 
 import { Button } from "../../components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 export function CarDetails() {
+
+  const navigation = useNavigation<any>();
+
+  const handleGoToScheduling = () => {
+    navigation.navigate('Scheduling');
+  }
   return (
     <Container>
       <Header>
@@ -75,7 +82,7 @@ export function CarDetails() {
         </About>
       </Content>
       <Footer>
-        <Button title="Confirmar"/>
+        <Button title="Confirmar" onPress={handleGoToScheduling}/>
       </Footer>
     </Container>
   );

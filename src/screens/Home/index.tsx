@@ -1,13 +1,16 @@
 import { StatusBar } from "react-native";
 import React from "react";
 import { RFValue } from 'react-native-responsive-fontsize';
-import { Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { Container, Header, HeaderContent, TotalCars, CarList } from "./styles";
 import Logo from '../../assets/logo.svg';
 
 import { Car } from "../../components/Car";
 
+
+
 export function Home() {
+    const navigation = useNavigation<any>();
 
     const CarData = {
         brand: 'Audi',
@@ -18,6 +21,11 @@ export function Home() {
         },
         thumbnail: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.1j8dSkMLTstDcQ65JbUKrgHaE4%26pid%3DApi&f=1'
     }
+
+    const handleGoToDetails = () =>{
+      navigation.navigate('CarDetails');
+    }
+
   return (
     <Container>
       <StatusBar
@@ -38,7 +46,7 @@ export function Home() {
           data={[1,2,3,4,5,6]}
           keyExtractor={item => String(item)}
           renderItem={({ item }) => 
-            <Car data={CarData} />
+            <Car data={CarData} onPress={handleGoToDetails} />
           }
         /> 
     </Container>
