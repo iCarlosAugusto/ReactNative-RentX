@@ -14,7 +14,7 @@ import {
   Price,
   About,
   Accessories,
-  Footer
+  Footer,
 } from "./styles";
 
 import { BackButton } from "../../components/BackButton";
@@ -27,41 +27,50 @@ import ForceSvg from "../../assets/force.svg";
 import GasolineSvg from "../../assets/gasoline.svg";
 import ExchangeSvg from "../../assets/exchange.svg";
 import PeopleSvg from "../../assets/people.svg";
-
+import { CarInterface } from "../../interfaces/CarInterface";
 import { Button } from "../../components/Button";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+//
+//interface Params {
+//  car: CarModel;
+//}
 
 export function CarDetails() {
-
   const navigation = useNavigation<any>();
+  const route = useRoute();
+  const car = route.params as CarInterface;
+  console.log(car);
 
   const handleGoToScheduling = () => {
-    navigation.navigate('Scheduling');
+    navigation.navigate("Scheduling");
+  };
+
+  const handleGoBack = () =>{
+    navigation.goBack();
   }
+
   return (
     <Container>
       <Header>
-        <BackButton />
+        <BackButton onPress={handleGoBack} />
       </Header>
 
       <CarImages>
         <ImageSlider
-          imagesUrl={[
-            "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WE7zYfoZ6de4Tp4uTEbOSQHaEK%26pid%3DApi&f=1",
-          ]}
+          imagesUrl={car.photos}
         />
       </CarImages>
 
       <Content>
         <Details>
           <Description>
-            <Brand>AUDI</Brand>
-            <Name>Audio v2 Machine</Name>
+            <Brand>{car.brand}</Brand>
+            <Name>{car.name}</Name>
           </Description>
 
           <Rent>
-            <Period>Ao dia</Period>
-            <Price>R$ 140</Price>
+            <Period>{car.rent.period}</Period>
+            <Price>{car.rent.price}</Price>
           </Rent>
         </Details>
 
@@ -74,15 +83,10 @@ export function CarDetails() {
           <Accessory name={"2 pessoas"} icon={PeopleSvg} />
         </Accessories>
 
-        <About>
-          essencialmente inalterado. Se popularizou na década de 60, quando a
-          Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais
-          a ser integrado a softwares de editoração
-
-        </About>
+        <About>{car.about}</About>
       </Content>
       <Footer>
-        <Button title="Confirmar" onPress={handleGoToScheduling}/>
+        <Button title="Confirmar" onPress={handleGoToScheduling} />
       </Footer>
     </Container>
   );
