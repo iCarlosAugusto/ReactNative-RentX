@@ -37,6 +37,29 @@
   
 <br clear="left"/>
 <br />
-
+ 
+><h1>Rental cars</h1>
+<p>If you click on the button bellow, you will be moved to the screen where you will see all your rental cars</p>
 <img src="https://user-images.githubusercontent.com/82423216/159892442-cd0a50cd-9743-4dc7-b1a9-c661b679bbba.png" width="300px" align="left"/>
-<img src="https://user-images.githubusercontent.com/82423216/159892601-6e315e7e-c258-4c38-b3ae-b48eebb71221.jpeg" width="300px" align="left"/>
+<img src="https://user-images.githubusercontent.com/82423216/159900242-a1f51ffc-99c1-42d8-8606-808dfc6a0e74.jpeg" width="300px" align="left"/>
+
+<br clear="left"/>
+<br />
+
+  ><h2>Main Tecnologies, libs and them versions 🛠 </h2>
+
+  <p>✅ React Native: 0.64.3</p>
+  <p>✅ Expo: "~44.0.2"</p>
+  <p>✅ Styled Componentes: ^5.3.3</p>
+  <p>✅ React Navigation: ^6.0.6</p>
+  <p>✅ React-native-calendars: 1.505.0</p>
+  <p>✅ Typescript: "~4.3.5"</p>
+  <p>✅ Axios: "^0.26.0"</p>
+  
+><h2>Status App: Devoloping ⚠️</h2>
+<p>What is missing to be done?</p>
+<ul>
+ <li>Tests using Jest 🧪</li>
+ <li>Animations using Reanimated2</li>
+ </ul>
+  
