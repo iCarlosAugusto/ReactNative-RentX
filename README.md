@@ -1,3 +1,4 @@
+<h1 align="center"> RENTX</h1>
 
 ><h1>Car List 🚙🚗</h1>
  <img src="https://user-images.githubusercontent.com/82423216/159882283-70871e9f-e1cd-45ae-832a-0d2d9761525a.jpeg" width="300px" align="left"/> 
