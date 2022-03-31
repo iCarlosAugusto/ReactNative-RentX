@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { StatusBar } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import { useNavigation } from "@react-navigation/native";
-import { Container, Header, HeaderContent, TotalCars, CarList } from "./styles";
+import { useTheme } from "styled-components";
+import { Ionicons } from '@expo/vector-icons';
+import { Container, Header, HeaderContent, TotalCars, CarList, MyCarsButton } from "./styles";
 import Logo from "../../assets/logo.svg";
 import { Car } from "../../components/Car";
 import api from "../../services/api";
@@ -13,6 +15,7 @@ export function Home() {
   const navigation = useNavigation<any>();
   const [carData, setCarData] = useState<CarInterface[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const theme = useTheme();
 
   useEffect(() => {
     const loadDataCar = async () => {
@@ -20,7 +23,7 @@ export function Home() {
         const response = await api.get("/cars");
         setCarData(response.data);
       } catch (error) {
-        console.log(error);
+        console.log("Erro na API: "+error);
       } finally {
         setIsLoading(false);
       }
@@ -31,6 +34,10 @@ export function Home() {
 
   const handleGoToCarDetails = (car : CarInterface) => {
     navigation.navigate("CarDetails", {car});
+  };
+
+  const handleGoToMyCars = () => {
+    navigation.navigate("MyCars");
   };
 
   return (
@@ -58,6 +65,12 @@ export function Home() {
           )}
         />
       )}
+      <MyCarsButton onPress={handleGoToMyCars}>
+          <Ionicons name="ios-car-sport"
+            size={34}
+            color={theme.colors.shape}
+          />
+      </MyCarsButton>
     </Container>
   );
 }

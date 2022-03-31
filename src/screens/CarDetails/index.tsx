@@ -20,34 +20,29 @@ import {
 import { BackButton } from "../../components/BackButton";
 import { ImageSlider } from "../../components/ImageSlider";
 import { Accessory } from "../../components/Accessory";
-
-import SpeedSvg from "../../assets/speed.svg";
-import AccelerationSvg from "../../assets/acceleration.svg";
-import ForceSvg from "../../assets/force.svg";
-import GasolineSvg from "../../assets/gasoline.svg";
-import ExchangeSvg from "../../assets/exchange.svg";
-import PeopleSvg from "../../assets/people.svg";
+import { getAccessoryIcon } from "../../utils/getAccessoryIcon";
 import { CarInterface } from "../../interfaces/CarInterface";
 import { Button } from "../../components/Button";
 import { useNavigation, useRoute } from "@react-navigation/native";
-//
-//interface Params {
-//  car: CarModel;
-//}
+
+interface Params {
+  car: CarInterface;
+};
 
 export function CarDetails() {
   const navigation = useNavigation<any>();
   const route = useRoute();
-  const car = route.params as CarInterface;
-  console.log(car);
-
+  const { car } = route.params as Params;
+  
   const handleGoToScheduling = () => {
-    navigation.navigate("Scheduling");
+    navigation.navigate("Scheduling", {
+      car
+    });
   };
 
-  const handleGoBack = () =>{
+  const handleGoBack = () => {
     navigation.goBack();
-  }
+  };
 
   return (
     <Container>
@@ -56,9 +51,7 @@ export function CarDetails() {
       </Header>
 
       <CarImages>
-        <ImageSlider
-          imagesUrl={car.photos}
-        />
+        <ImageSlider imagesUrl={car.photos} />
       </CarImages>
 
       <Content>
@@ -74,14 +67,17 @@ export function CarDetails() {
           </Rent>
         </Details>
 
-        <Accessories>
-          <Accessory name={"360 Km/h"} icon={SpeedSvg} />
-          <Accessory name={"3.2s"} icon={AccelerationSvg} />
-          <Accessory name={"800 HP"} icon={ForceSvg} />
-          <Accessory name={"Gasolina"} icon={GasolineSvg} />
-          <Accessory name={"Auto"} icon={ExchangeSvg} />
-          <Accessory name={"2 pessoas"} icon={PeopleSvg} />
-        </Accessories>
+        {car.accessories && (
+          <Accessories>
+            {car.accessories.map((accessory) => (
+              <Accessory
+                key={accessory.type}
+                name={accessory.name}
+                icon={getAccessoryIcon(accessory.type)}
+              />
+            ))}
+          </Accessories>
+        )}
 
         <About>{car.about}</About>
       </Content>

@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import { FlatList, FlatListProps } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { CarInterface } from "../../interfaces/CarInterface";
+import { RectButton } from "react-native-gesture-handler";
 
 export const Container = styled.View`
     flex: 1;
@@ -36,3 +37,15 @@ export const CarList = styled(FlatList as new (props: FlatListProps<CarInterface
   },
   showsVerticalScrollIndicator: false
 })``;
+
+export const MyCarsButton = styled(RectButton)`
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  position: absolute;
+  right: 12px;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.main};
+`;
