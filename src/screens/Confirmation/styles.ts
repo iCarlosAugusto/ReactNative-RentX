@@ -14,6 +14,11 @@ export const Content = styled.View`
   padding-bottom: 80px;
 `;
 
+export const Texto = styled.Text`
+  font-size: 30px;
+  color: white;
+`;
+
 export const Title = styled.Text`
   font-size: ${RFValue(30)}px;
   color: ${({ theme }) => theme.colors.shape};

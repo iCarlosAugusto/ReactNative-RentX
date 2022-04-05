@@ -22,7 +22,7 @@ export function SignIn() {
 
   const handleGoToSignUp = () => {
     console.log("ClicoU!");
-    navigation.navigate("SignUp")
+    navigation.navigate("SignUpFirstStep")
   };
 
   return (

@@ -722,5 +722,42 @@
       "endDate": "18/03/2022",
       "id": 6
     }
+  ],
+  "users": [
+    {
+      "name": "Ee",
+      "email": "carlosaugustodelimavieira@gmail.com",
+      "driver_license": "41",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "name": "Ee",
+      "email": "carlosaugustodelimavieira@gmail.com",
+      "driver_license": "41",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "Ssss",
+      "email": "carlosaugustodelimavieira2@gmail.com",
+      "driver_license": "76767",
+      "password": "321",
+      "id": 3
+    },
+    {
+      "name": "Ssss",
+      "email": "carlosaugustodelimavieira2@gmail.com",
+      "driver_license": "76767",
+      "password": "321",
+      "id": 4
+    },
+    {
+      "name": "Ajaj",
+      "email": "carlosaugustodelimavieira@gmail.com",
+      "driver_license": "191949",
+      "password": "321",
+      "id": 5
+    }
   ]
 }
