@@ -33,7 +33,9 @@
     "react-native-screens": "~3.10.1",
     "react-native-svg": "12.1.1",
     "react-native-web": "0.17.1",
+    "reflect-metadata": "^0.1.13",
     "styled-components": "^5.3.3",
+    "typeorm": "^0.3.5",
     "yup": "^0.32.11"
   },
   "devDependencies": {

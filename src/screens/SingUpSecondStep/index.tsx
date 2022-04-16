@@ -39,7 +39,6 @@ export function SignUpSecondStep() {
   const theme = useTheme();
 
   const dataUser = route.params as Params;
-  console.log("dataUser2Step: " + dataUser.userEmail);
 
   function handleBack() {
     navigation.goBack();
@@ -53,7 +52,7 @@ export function SignUpSecondStep() {
     if (password != passwordConfirm) {
       return Alert.alert("As senhas não são iguais");
     }
-
+  
     await api
       .post("/users", {
         name: dataUser.userName,
@@ -62,6 +61,7 @@ export function SignUpSecondStep() {
         password,
       })
       .then(() => {
+        console.log("MANDOU NA API!");
         navigation.navigate("Confirmation", {
           title: "Sucesso!",
           message: "Conta criada com êxito, agora é só fazer o login! :D",
