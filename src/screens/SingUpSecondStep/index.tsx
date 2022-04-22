@@ -69,6 +69,11 @@ export function SignUpSecondStep() {
         });
       })
       .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
         console.log(error);
         Alert.alert("Opa", "Não foi possível cadastrar");
       });
