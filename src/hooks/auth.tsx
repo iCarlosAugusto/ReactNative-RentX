@@ -10,6 +10,11 @@ interface User {
   //token: string;
 };
 
+interface AuthState {
+  token: string;
+  user: User;
+};
+
 interface AuthContextProps {
   signIn: ({email, password}: SignInProps) => Promise<void>;
   user: User;
@@ -28,15 +33,20 @@ const authContext = createContext({} as AuthContextProps);
 
 
 function AuthProvider({children}: AuthProviderProps){
-  const [user, setUser] = useState<User>();
+  const [data, setData] = useState<AuthState>({} as AuthState);
 
   async function signIn({email, password}: SignInProps) {
      const response = await api.post("/sessions", {email, password});
-     console.log(response.data);
+
+     const { token, user } = response.data;
+
+     api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+     setData({token, user});
   };
 
+
   return (
-    <authContext.Provider value={{ signIn, user }}>
+    <authContext.Provider value={{ signIn, user: data.user }}>
       {children}
     </authContext.Provider>
   );

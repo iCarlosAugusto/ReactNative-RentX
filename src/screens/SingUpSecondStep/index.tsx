@@ -61,7 +61,7 @@ export function SignUpSecondStep() {
         password,
       })
       .then(() => {
-        console.log("MANDOU NA API!");
+     
         navigation.navigate("Confirmation", {
           title: "Sucesso!",
           message: "Conta criada com êxito, agora é só fazer o login! :D",
