@@ -7,7 +7,7 @@ const { Navigator, Screen } = createBottomTabNavigator();
 
 export function BottomRoutes() {
   return (
-    <Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+    <Navigator initialRouteName="Home" screenOptions={{ headerShw}}>
       <Screen name="Home" component={StackRoutes} />
       <Screen name="MyCars" component={MyCars} />
     </Navigator>
