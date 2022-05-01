@@ -13,7 +13,7 @@ import { BackButton } from "../../components/BackButton";
 import { Bullet } from "../../components/Bullet";
 import { InputPassword } from "../../components/InputPassword";
 import { Button } from "../../components/Button";
-import { StackRoutesParams } from "../../routes/stack.routes";
+import { StackRoutesParams } from "../../routes/app.stack.routes";
 import {
   Container,
   Header,

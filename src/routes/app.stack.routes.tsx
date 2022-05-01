@@ -15,15 +15,15 @@ import { SignUpSecondStep } from "../screens/SingUpSecondStep";
 const { Navigator, Screen } = createNativeStackNavigator();
 
 export type StackRoutesParams = {
-  "SignIn";
-  "SignUpFirstStep";
-  "SignUpSecondStep";
-  "Home";
-  "CarDetails";
-  "Confirmation";
-  "Scheduling";
-  "SchedulingDetails";
-  "MyCars";
+  SignIn;
+  SignUpFirstStep;
+  SignUpSecondStep;
+  Home;
+  CarDetails;
+  Confirmation;
+  Scheduling;
+  SchedulingDetails;
+  MyCars;
 };
 
 export function StackRoutes() {
@@ -33,10 +33,7 @@ export function StackRoutes() {
         headerShown: false,
       }}
     >
-       <Screen name="Home" component={Home} />
-      <Screen name="SignIn" component={SignIn} />
-      <Screen name="SignUpFirstStep" component={SignUpFirstStep} />
-      <Screen name="SignUpSecondStep" component={SignUpSecondStep} />
+      <Screen name="Home" component={Home} />
       <Screen name="CarDetails" component={CarDetails} />
       <Screen name="Confirmation" component={Confirmation} />
       <Screen name="Scheduling" component={Scheduling} />
