@@ -7,10 +7,10 @@ import { BottomRoutes } from "./app.bottom.routes";
 
 export function Routes() {
     const { user } = useAuth();
-    console.log("user vindo de routes:", user);
+    
     return(
         <NavigationContainer >
-            {user ? <BottomRoutes/> : <AuthRoutes/> }
+            {user.id ? <BottomRoutes/> : <AuthRoutes/> }
         </NavigationContainer>
     );
 }

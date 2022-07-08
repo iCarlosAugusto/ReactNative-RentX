@@ -1,7 +1,7 @@
 import { Database } from '@nozbe/watermelondb';
 import SQLiteAdapter from '@nozbe/watermelondb/adapters/sqlite';
 
-import { schemas } from './schemas';
+import { schemas } from './schemas/index';
 import { User } from './models/User';
 
 
